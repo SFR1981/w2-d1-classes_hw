@@ -28,6 +28,17 @@ def test_set_new_cohort
   assert_equal("G7", student.get_cohort())
 end
 
+def test_student_talks
+  student = Student.new("Steve", "E22")
+  student.talks()
+  assert_equal("I can talk", student.talks())
+end
+
+def test_say_favourite_language
+      student = Student.new("Steve", "E22")
+      
+      assert_equal("I love Ruby", student.say_favourite_language("Ruby"))
+end
 
 
 
