@@ -1,14 +1,15 @@
 class Team
 
 
-attr_reader(:team_name, :players, :coach)
-attr_writer(:players, :coach)
+attr_reader(:team_name, :players, :coach, :points)
+attr_writer(:players, :coach, :points)
 
   def initialize(team_name, players, coach)
 
     @team_name = team_name
     @players = players
     @coach = coach
+    @points = 0
 
   end
 
@@ -36,6 +37,17 @@ attr_writer(:players, :coach)
 
   end
 
+  def check_if_player?(name)
+    @players.include?(name)
+  end
+
+  def winning_points(win_or_not)
+
+    @points += 1 if win_or_not == "win"
+
+
+
+  end
 
 
 

@@ -42,9 +42,37 @@ class StudentTest < MiniTest::Test
   end
 
 
-  def test_check_if_player
+  def test_check_if_player__false
+    team = Team.new("StarBug", ["Lister", "Rimmer", "Kryten"], "Doug Naylor")
+
+    assert_equal(false, team.check_if_player?("Holly"))
 
   end
+
+  def test_check_if_player__true
+    team = Team.new("StarBug", ["Lister", "Rimmer", "Kryten"], "Doug Naylor")
+
+    assert_equal(true, team.check_if_player?("Rimmer"))
+
+
+  end
+
+
+
+  def test_points__win
+    team = Team.new("StarBug", ["Lister", "Rimmer", "Kryten"], "Doug Naylor")
+    team.winning_points("win")
+    assert_equal(1, team.points())
+
+  end
+
+    def test_points__not_win
+      team = Team.new("StarBug", ["Lister", "Rimmer", "Kryten"], "Doug Naylor")
+      team.winning_points("lose")
+      assert_equal(0, team.points())
+
+  end
+
 
 
 
